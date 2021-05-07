@@ -2,6 +2,7 @@ package com.panwy.nlp.mynlp;
 
 import com.mayabot.nlp.segment.Lexer;
 import com.mayabot.nlp.segment.Lexers;
+import org.springframework.util.StopWatch;
 
 /**
  * 感知机分词
@@ -14,6 +15,13 @@ public class BemsSplit {
                 .withPersonName()
                 .withNer()
                 .build();
-        System.out.println(lexer.scan("2001年，他还在纽约医学院工作时，在英国学术刊物《自然》上发表一篇论文"));
+        StopWatch stopWatch = new StopWatch("test");
+        stopWatch.start("计时");
+        for (int i = 0; i < 1000000; i++) {
+            lexer.scan("人力资源和社会保障局"+i);
+        }
+        stopWatch.stop();
+        System.out.println(stopWatch.prettyPrint());
+
     }
 }

@@ -6,7 +6,8 @@ import com.mayabot.nlp.module.pinyin.split.PinyinSplits;
 
 public class Pinyin {
     public static void main(String[] args) {
-        PinyinResult result = Pinyins.convert("好好学习天天向上");
+        PinyinResult result = Pinyins.convert("人里自愿");
+        result.asList();
         System.out.println(result.asString());
         System.out.println(result.asHeadString(","));
         result.fuzzy(true);
@@ -15,6 +16,6 @@ public class Pinyin {
         result.keepPunctuation(true);
         System.out.println(result.asString());
         System.out.println("==========拼音流切分");
-        System.out.println(PinyinSplits.split("haohaoxuexitiantianxiangshang"));
+        System.out.println(PinyinSplits.split("wozaixian"));
     }
 }
